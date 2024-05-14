@@ -1,5 +1,5 @@
 <footer class="text-center fixed-bottom">
-    <div class="container">
+    <div class="container ">
         Footer
     </div>
 </footer>
