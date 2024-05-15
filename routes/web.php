@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-
+Route::get('/', [PageController::class, 'home']);
+Route::get('/weapons', [PageController::class, 'index']);
+Route::get('/weapons/weapon', [PageController::class, 'show']);
