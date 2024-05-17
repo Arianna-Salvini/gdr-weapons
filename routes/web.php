@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\WeaponController;
+use App\Models\Weapon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'home']);
-Route::get('/weapons', [PageController::class, 'index']);
-Route::get('/weapons/weapon', [PageController::class, 'show']);
+Route::get('/', [WeaponController::class, 'index']);
+
