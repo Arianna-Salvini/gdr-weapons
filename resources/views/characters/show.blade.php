@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a class="btn btn-dark" href="{{route('character.index')}}">Back</a>
+                        <a class="btn btn-dark" href="{{route('characters.index')}}">Back</a>
                     </div>
 
                 </div>

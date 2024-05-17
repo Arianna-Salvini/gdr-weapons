@@ -27,11 +27,6 @@
 
                 </div>
             @endforeach
-            <div class="col-4">
-                <div class="card">
-
-                </div>
-            </div>
         </div>
     </div>
 @endsection

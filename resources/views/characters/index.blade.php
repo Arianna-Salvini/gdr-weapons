@@ -3,7 +3,14 @@
 
 @section('content')
     <div class="container text-center">
-        <h1>All characters</h1>
+
+        <div class="container">
+            <h1>All characters</h1>
+
+            <a class="btn btn-primary" href="{{ route('characters.create') }}">Add</a>
+        </div>
+
+
         <div class="row row-cols-md-4">
             @foreach ($characters as $character)
                 <div class="col g-4">
@@ -25,11 +32,6 @@
 
                 </div>
             @endforeach
-            <div class="col-4">
-                <div class="card">
-
-                </div>
-            </div>
         </div>
     </div>
 @endsection

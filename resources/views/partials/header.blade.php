@@ -8,7 +8,10 @@
                 <a class="text-danger " aria-current="page" href="#">Home</a>
             </div>
             <div class="navbar-nav px-3">
-                <a class=" text-danger" aria-current="page" href="">Weapon</a>
+                <a class=" text-danger" aria-current="page" href="{{ route('weapons.index') }}">Weapons</a>
+            </div>
+            <div class="navbar-nav px-3">
+                <a class=" text-danger" aria-current="page" href="{{ route('characters.index') }}">Characters</a>
             </div>
         </nav>
     </div>
