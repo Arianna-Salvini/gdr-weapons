@@ -4,8 +4,7 @@
 @section('content')
     <div class="container text-center">
         <h1>GDR Weapon</h1>
-        <div class="row row-cols-md-4">
-            @foreach ($weapons as $weapon)
+        <div class="row">
                 <div class="col g-4">
                     <div class="card">
                         <div class="card-title">
@@ -19,14 +18,12 @@
                             <h5>Cost: {{ $weapon->cost }}</h5>
                             <h5>Damage: {{ $weapon->damage_dice }}</h5>
                         </div>
-
-                        <div class="card-footer">
-                            <a class="btn btn-primary" href="{{ route('weapons.show', $weapon) }}">Show details</a>
-                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-dark" href="{{route('weapons.index')}}">Back</a>
                     </div>
 
                 </div>
-            @endforeach
             <div class="col-4">
                 <div class="card">
 
