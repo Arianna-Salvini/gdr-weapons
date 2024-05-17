@@ -1,14 +1,14 @@
 <header class="text-danger p-3 bg-dark mb-5 hv">
     <div class="containers">
-        <nav class="navbar navbar-expand-sm navbar-light bg-primary">
-            <div>
-                <h1>GDR Weapon</h1>
+        <nav class="navbar navbar-expand-sm navbar-light px-3">
+            <div class="px-3">
+                <h3>GDR Weapon</h3>
             </div>
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <div class="navbar-nav px-3">
+                <a class="text-danger " aria-current="page" href="#">Home</a>
             </div>
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">weapon</a>
+            <div class="navbar-nav px-3">
+                <a class=" text-danger" aria-current="page" href="#">Weapon</a>
             </div>
         </nav>
     </div>
