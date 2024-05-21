@@ -4,8 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
-
 return new class extends Migration
 {
     /**
@@ -13,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('weapons', function (Blueprint $table) {
+        Schema::create('characters', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 30);
-            $table->string('slug' , 30);
-            $table->string('type' , 30);
-            $table->string('category' , 50);
-            $table->string('weight' , 10);
-            $table->string('cost' , 10);
-            $table->string('damage_dice' , 30);
+            $table->string('name', 50);
+            $table->text('description')->nullable();
+            $table->string('attack', 20);
+            $table->string('defense', 20);
+            $table->string('speed', 20);
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('weapons');
+        Schema::dropIfExists('characters');
     }
 };
