@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Models\Weapon;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class WeaponController extends Controller
 {
@@ -14,7 +13,7 @@ class WeaponController extends Controller
     public function index()
     {
         $weapons = Weapon::all();
-        return view('admin.weapons.index', compact('weapons'));
+        return view('weapons.index', compact('weapons'));
     }
 
     /**
@@ -38,7 +37,7 @@ class WeaponController extends Controller
      */
     public function show(Weapon $weapon)
     {
-        return view('admin.weapons.show', compact('weapon'));
+        return view('weapons.show', compact('weapon'));
     }
 
     /**

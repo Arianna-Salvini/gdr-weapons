@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Models\Character;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCharacterRequest;
-use App\Http\Controllers\Controller;
 
 class CharacterController extends Controller
 {
@@ -14,7 +13,7 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        return view('admin.characters.index', ['characters' => Character::all()]);
+        return view('characters.index', ['characters' => Character::all()]);
 
     }
 
@@ -23,7 +22,7 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('admin.characters.create');
+        return view('characters.create');
     }
 
     /**
@@ -35,7 +34,7 @@ class CharacterController extends Controller
 
         Character::create($val_data);
 
-        return to_route('admin.characters.index');
+        return to_route('characters.index');
     }
 
     /**
@@ -43,7 +42,7 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        return view('admin.characters.show', compact('character'));
+        return view('characters.show', compact('character'));
     }
 
     /**
