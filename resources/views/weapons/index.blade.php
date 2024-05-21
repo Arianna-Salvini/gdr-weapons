@@ -2,26 +2,26 @@
 
 
 @section('content')
-    <div class="container text-center">
-        <h1>GDR Weapon</h1>
-        <div class="row row-cols-md-4">
+    <div class="container text-center mt-5">
+        <h1>GDR Weapons</h1>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mt-3">
             @foreach ($weapons as $weapon)
                 <div class="col g-4">
-                    <div class="card">
-                        <div class="card-title">
-                            <h3>{{ $weapon->name }}</h3>
+                    <div class="card h-100">
+                        <div class="card-header bg-dark text-white">
+                            <h3 class="card-title">{{ $weapon->name }}</h3>
                         </div>
                         <div class="card-body">
-                            <h5>Slug: {{ $weapon->slug }}</h5>
-                            <h5>Type: {{ $weapon->type }}</h5>
-                            <h5>Category: {{ $weapon->category }}</h5>
-                            <h5>Weight: {{ $weapon->weight }}</h5>
-                            <h5>Cost: {{ $weapon->cost }}</h5>
-                            <h5>Damage: {{ $weapon->damage_dice }}</h5>
+                            <p class="card-text"><b>Slug:</b> {{ $weapon->slug }}</p>
+                            <p class="card-text"><b>Type:</b> {{ $weapon->type }}</p>
+                            <p class="card-text"><b>Category:</b> {{ $weapon->category }}</p>
+                            <p class="card-text"><b>Weight:</b> {{ $weapon->weight }}</p>
+                            <p class="card-text"><b>Cost:</b> {{ $weapon->cost }}</p>
+                            <p class="card-text"><b>Damage:</b> {{ $weapon->damage_dice }}</p>
                         </div>
 
                         <div class="card-footer">
-                            <a class="btn btn-primary" href="{{ route('weapons.show', $weapon) }}">Show details</a>
+                            <a class="btn btn-danger w-100" href="{{ route('weapons.show', $weapon) }}">Show details</a>
                         </div>
                     </div>
 
