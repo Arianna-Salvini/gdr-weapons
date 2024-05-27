@@ -20,13 +20,16 @@ use App\Http\Controllers\Admin\WeaponController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('guests.welcome');
 });
 
-Route::get('/admin', function () {
-    Route::resource('weapons', WeaponController::class);
-    Route::resource('characters', CharacterController::class);
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/weapons', function () {
+    return view('guests.weapons');
+});
+
+Route::get('/characters', function () {
+    return view('guests.characters');
+});
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
