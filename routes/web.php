@@ -17,14 +17,17 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', [WeaponController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('guests.welcome');
+});
 
-Route::resource('weapons', WeaponController::class);
-Route::resource('characters', CharacterController::class);
+Route::get('/weapons', function () {
+    return view('guests.weapons');
+});
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/characters', function () {
+    return view('guests.characters');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
