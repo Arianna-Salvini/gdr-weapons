@@ -22,11 +22,13 @@ Route::get('/', function () {
 });
 
 Route::get('/weapons', function () {
-    return view('guests.weapons');
+    $weapons = \App\Models\Weapon::all();
+    return view('guests.weapons', compact('weapons'));
 });
 
 Route::get('/characters', function () {
-    return view('guests.characters');
+    $characters = \App\Models\Character::all();
+    return view('guests.characters', compact('characters'));
 });
 
 Route::middleware('auth')->group(function () {
