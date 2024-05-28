@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container text-center mt-5">
-        <h1>GDR Weapon</h1>
+        <h1 class="medieval">GDR Weapon</h1>
         <div class="row justify-content-center mt-5">
             <div class="col-md-8 col-lg-6">
                 <div class="card">

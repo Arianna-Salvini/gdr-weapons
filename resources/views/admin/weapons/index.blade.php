@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container text-center mt-5">
-        <h1>GDR Weapons</h1>
+        <h1 class="medieval">GDR Weapons</h1>
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 mt-3">
             @foreach ($weapons as $weapon)
                 <div class="col g-4">
@@ -21,7 +21,8 @@
                         </div>
 
                         <div class="card-footer">
-                            <a class="btn btn-danger w-100" href="{{ route('admin.weapons.show', $weapon) }}">Show details</a>
+                            <a class="btn btn-danger w-100" href="{{ route('admin.weapons.show', $weapon) }}">Show
+                                details</a>
                         </div>
                     </div>
 
