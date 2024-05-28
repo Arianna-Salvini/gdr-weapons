@@ -4,7 +4,7 @@
 @section('content')
     <div class="container">
 
-        <h1>Create your character here</h1>
+        <h1 class="medieval">Create your character here</h1>
 
 
         <form action="{{ route('characters.store') }}" method="post">

@@ -1,7 +1,7 @@
 <header class="p-3 bg-dark mb-5">
     <div class="container">
         <nav class="navbar navbar-expand-sm navbar-dark px-3">
-            <div class="text-danger navbar-brand text-center me-lg-5">
+            <div class="text-danger navbar-brand text-center me-lg-5 medieval">
                 <h3 class="lh-1">GDR</h3>
                 <h6 class="lh-1">Weapons</h6>
             </div>
@@ -10,7 +10,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto text-uppercase">
+                <ul class="navbar-nav me-auto text-uppercase medieval">
                     <li class="nav-item">
                         <a class="nav-link text-danger" href="{{ url('/') }}">Home</a>
                     </li>
@@ -22,7 +22,7 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto medieval">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">

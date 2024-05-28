@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2 class="fs-4 text-secondary my-4 text-center">
+        <h2 class="fs-4 text-secondary my-4 text-center medieval">
             {{ __('Dashboard') }}
         </h2>
         <div class="row justify-content-center">

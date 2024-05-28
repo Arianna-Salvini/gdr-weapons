@@ -5,8 +5,8 @@
     <div class="container text-center mt-5">
 
         <div class="mb-4">
-            <h1>All Characters</h1>
-            <a class="btn btn-warning w-25 my-3" href="{{ route('characters.create') }}">Add</a>
+            <h1 class="medieval">All Characters</h1>
+            <a class="btn btn-warning w-25 my-3" href="{{ route('admin.characters.create') }}">Add</a>
         </div>
 
 

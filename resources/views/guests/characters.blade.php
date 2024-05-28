@@ -4,7 +4,7 @@
     <div class="container text-center mt-5">
 
         <div class="mb-4">
-            <h1>All Characters</h1>
+            <h1 class="medieval">All Characters</h1>
         </div>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
