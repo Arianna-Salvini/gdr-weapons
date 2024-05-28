@@ -18,11 +18,12 @@
                         @endif
 
                         {{ __('You are logged in!') }}
-                        <br>
-                        <a class="btn btn-danger my-5 btn-lg text-white" href="{{ url('/admin/weapons') }}">Manage
-                            Weapons</a>
-                        <a class="btn btn-danger my-5 btn-lg text-white" href="{{ url('/admin/characters') }}">Manage
-                            Characters</a>
+                        <div class="d-flex gap-5 justify-content-center">
+                            <a class="btn btn-danger my-5 btn-lg text-white" href="{{ url('/admin/weapons') }}">Manage
+                                Weapons</a>
+                            <a class="btn btn-danger my-5 btn-lg text-white" href="{{ url('/admin/characters') }}">Manage
+                                Characters</a>
+                        </div>
                     </div>
                 </div>
             </div>
