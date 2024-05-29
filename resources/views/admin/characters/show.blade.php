@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @section('content')
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-danger w-100 mt-5" href="{{ route('characters.index') }}">Back</a>
+                    <a class="btn btn-danger w-100 mt-5" href="{{ route('admin.characters.index') }}">Back</a>
                 </div>
 
             </div>

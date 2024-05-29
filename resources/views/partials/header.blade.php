@@ -12,13 +12,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto text-uppercase medieval">
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="{{ url('/') }}">Home</a>
+                        <a class="nav-link text-danger" href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="{{ url('/weapons') }}">Weapons</a>
+                        <a class="nav-link text-danger" href="{{ route('admin.weapons.index') }}">Weapons</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="{{ url('/characters') }}">Characters</a>
+                        <a class="nav-link text-danger" href="{{ route('admin.characters.index') }}">Characters</a>
                     </li>
                 </ul>
 
