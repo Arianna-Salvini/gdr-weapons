@@ -18,6 +18,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
+                    <a class="btn btn-info w-100 mt-5" href="{{ route('admin.characters.edit', $character) }}">Edit</a>
                     <a class="btn btn-danger w-100 mt-5" href="{{ route('admin.characters.index') }}">Back</a>
                 </div>
 

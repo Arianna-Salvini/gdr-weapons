@@ -24,6 +24,7 @@ class UpdateCharacterRequest extends FormRequest
         return [
             'name' => 'required|min:5',
             'description' => 'nullable|',
+            'type_id' => 'exists:types:id|nullable',
             'attack' => 'nullable',
             'defense' => 'nullable',
             'speed' => 'nullable'

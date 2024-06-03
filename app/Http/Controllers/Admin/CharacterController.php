@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreCharacterRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateCharacterRequest;
+use App\Models\Type;
 
 class CharacterController extends Controller
 {
@@ -23,7 +24,9 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('admin.characters.create');
+        $types = Type::all();
+
+        return view('admin.characters.create', compact('types'));
     }
 
     /**
@@ -32,7 +35,7 @@ class CharacterController extends Controller
     public function store(StoreCharacterRequest $request)
     {
         $val_data = $request->validated();
-
+        
         Character::create($val_data);
 
         return to_route('admin.characters.index');
@@ -51,7 +54,9 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        return view('admin.characters.edit', compact('character'));
+        $types = Type::all();
+
+        return view('admin.characters.edit', compact('character', 'types'));
     }
 
     /**
