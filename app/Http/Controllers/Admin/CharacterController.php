@@ -6,6 +6,7 @@ use App\Models\Character;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCharacterRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateCharacterRequest;
 
 class CharacterController extends Controller
 {
@@ -15,7 +16,6 @@ class CharacterController extends Controller
     public function index()
     {
         return view('admin.characters.index', ['characters' => Character::all()]);
-
     }
 
     /**
@@ -51,15 +51,19 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        //
+        return view('admin.characters.edit', compact('character'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Character $character)
+    public function update(UpdateCharacterRequest $request, Character $character)
     {
-        //
+        $val_data = $request->validated();
+
+        $character->update($val_data);
+
+        return to_route('admin.characters.index');
     }
 
     /**
