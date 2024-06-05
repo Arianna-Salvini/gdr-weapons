@@ -3,8 +3,10 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CharacterController;
 use App\Http\Controllers\Admin\WeaponController;
+use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +42,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('characters', CharacterController::class)/* ->parameters(['characters' => 'character:slug']) */;
         Route::resource('weapons', WeaponController::class)->parameters(['weapons' => 'weapon:slug']);
+        Route::resource('types', TypeController::class)/* ->parameters(['types' => 'type:slug']) */;
     });
 
 Route::middleware('auth')->group(function () {
