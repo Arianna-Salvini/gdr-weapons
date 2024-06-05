@@ -1,4 +1,4 @@
-<header class="p-3 bg-dark mb-5">
+<header class="p-3 bg-dark">
     <div class="container">
         <nav class="navbar navbar-expand-sm navbar-dark px-3">
             <div class="text-danger navbar-brand text-center me-lg-5 medieval">
