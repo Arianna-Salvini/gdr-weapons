@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 use App\Models\Type;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 class TypeController extends Controller
 {
@@ -13,7 +15,7 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.types.index', ['types' => Type::all()]);
     }
 
     /**
@@ -21,7 +23,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -29,7 +31,10 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        $val_data = $request->validated();
+        $val_data['slug'] = Str::slug($request->name);
+        Type::create($val_data);
+        return to_route('admin.types.index')->with('message', 'Class created successfully');
     }
 
     /**
@@ -37,7 +42,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', ['type' => $type]);
     }
 
     /**
@@ -45,7 +50,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', ['type' => $type]);
     }
 
     /**
@@ -53,7 +58,10 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $val_data = $request->validated();
+        $val_data['slug'] = Str::slug($request->name);
+        $type->update($val_data);
+        return to_route('admin.types.index')->with('message', 'Class updated successfully');
     }
 
     /**
@@ -61,6 +69,7 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+        return to_route('admin.types.index')->with('message', 'Class deleted successfully');
     }
 }
