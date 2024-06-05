@@ -25,6 +25,7 @@
                         <div class="card-footer">
                             <a class="btn btn-dark w-100" href="{{ route('admin.weapons.show', $weapon) }}">Show
                                 details</a>
+                            <a class="btn btn-warning w-100" href="{{ route('admin.weapons.edit', $weapon) }}">Edit</a>
                             <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
                                 data-bs-target="#modalId-{{ $weapon->id }}">
                                 Delete

@@ -6,6 +6,8 @@ use App\Models\Weapon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
+use App\Http\Requests\StoreWeaponRequest;
+use App\Http\Requests\UpdateWeaponRequest;
 
 
 
@@ -31,12 +33,16 @@ class WeaponController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreWeaponRequest $request)
     {
-        $slug = Str::slug($request->title, '-');
-        $request['slug'] = $slug;
+        //dd($request);
+        $val_data = $request->validated();
 
-        $weapon = Weapon::create($request->all());
+        $slug = Str::slug($request->name);
+
+        $val_data['slug'] = $slug;
+
+        Weapon::create($val_data);
 
         return to_route('admin.weapons.index')->with('message', "Hai creato un nuovo progetto, congratulazioni");
     }
@@ -54,15 +60,23 @@ class WeaponController extends Controller
      */
     public function edit(Weapon $weapon)
     {
-        //
+        return view('admin.weapons.edit', compact('weapon'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Weapon $weapon)
+    public function update(UpdateWeaponRequest $request, Weapon $weapon)
     {
-        //
+        $val_data = $request->validated();
+
+        $slug = Str::slug($request->name);
+
+        $val_data['slug'] = $slug;
+
+        $weapon->update($val_data);
+
+        return to_route('admin.weapons.index')->with('message', "Hai modificato l'arma con successo");
     }
 
     /**
