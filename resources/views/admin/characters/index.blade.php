@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @section('content')
@@ -25,8 +25,8 @@
                         </div>
 
                         <div class="card-footer">
-                            <a class="btn btn-danger w-100" href="{{ route('characters.show', $character) }}">Show
-                                details</a>
+                            <a class="btn btn-danger w-100" href="{{ route('admin.characters.show', $character) }}">Show
+                               details</a>
                         </div>
                     </div>
                 </div>

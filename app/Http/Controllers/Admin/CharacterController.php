@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Character;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCharacterRequest;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateCharacterRequest;
+use App\Models\Type;
 
 class CharacterController extends Controller
 {
@@ -13,8 +16,7 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        return view('characters.index', ['characters' => Character::all()]);
-
+        return view('admin.characters.index', ['characters' => Character::all()]);
     }
 
     /**
@@ -22,7 +24,9 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        return view('characters.create');
+        $types = Type::all();
+
+        return view('admin.characters.create', compact('types'));
     }
 
     /**
@@ -31,10 +35,10 @@ class CharacterController extends Controller
     public function store(StoreCharacterRequest $request)
     {
         $val_data = $request->validated();
-
+        
         Character::create($val_data);
 
-        return to_route('characters.index');
+        return to_route('admin.characters.index');
     }
 
     /**
@@ -42,7 +46,7 @@ class CharacterController extends Controller
      */
     public function show(Character $character)
     {
-        return view('characters.show', compact('character'));
+        return view('admin.characters.show', compact('character'));
     }
 
     /**
@@ -50,15 +54,21 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        //
+        $types = Type::all();
+
+        return view('admin.characters.edit', compact('character', 'types'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Character $character)
+    public function update(UpdateCharacterRequest $request, Character $character)
     {
-        //
+        $val_data = $request->validated();
+
+        $character->update($val_data);
+
+        return to_route('admin.characters.index');
     }
 
     /**

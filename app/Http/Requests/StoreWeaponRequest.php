@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCharacterRequest extends FormRequest
+class StoreWeaponRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +23,11 @@ class StoreCharacterRequest extends FormRequest
     {
         return [
             'name' => 'required|min:5',
-            'description' => 'nullable|',
-            'type_id' => 'exists:types,id|nullable',
-            'attack' => 'nullable',
-            'defense' => 'nullable',
-            'speed' => 'nullable'
+            'type' => 'nullable',
+            'category' => 'nullable',
+            'weight' => 'nullable',
+            'cost' => 'nullable',
+            'damage_dice' => 'nullable',
         ];
     }
 }

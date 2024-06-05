@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\CharacterController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\WeaponController;
-use App\Models\Weapon;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CharacterController;
+use App\Http\Controllers\Admin\WeaponController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 /*
@@ -17,9 +16,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('guests.welcome');
-});
+/*
 
 Route::get('/weapons', function () {
     $weapons = \App\Models\Weapon::all();
@@ -30,6 +27,20 @@ Route::get('/characters', function () {
     $characters = \App\Models\Character::all();
     return view('guests.characters', compact('characters'));
 });
+ */
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+Route::middleware(['auth', 'verified'])
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('characters', CharacterController::class)/* ->parameters(['characters' => 'character:slug']) */;
+        Route::resource('weapons', WeaponController::class)->parameters(['weapons' => 'weapon:slug']);
+    });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -37,4 +48,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -1,13 +1,13 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @section('content')
     <div class="container">
 
-        <h1>Create your character here</h1>
+        <h1 class="display-2 fw-bolder">Create your character</h1>
 
 
-        <form action="{{ route('characters.store') }}" method="post">
+        <form action="{{ route('admin.characters.store') }}" method="post">
             @csrf
 
             <div class="mb-3">
@@ -17,11 +17,24 @@
                 <small id="nameHelper" class="form-text text-muted">Insert a name here</small>
             </div>
 
-
             <div>
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" name="description" id="description" rows="8"></textarea>
+            </div>
 
+            <div class="mb-3 text-dark">
+                <label for="type_id" class="form-label d-block">Type</label>
+
+                <div class="form-check">
+
+                    @foreach ($types as $type)
+                        <input name="type" type="checkbox" class="btn-check" id="tag-{{ $type->id }}"
+                            value="{{ $type->id }}" autocomplete="off">
+                        <label class="btn" for="tag-{{ $type->id }}">{{ $type->name }}
+                        </label>
+                    @endforeach
+                </div>
+                {{-- {{($type->id, old('type')) ? 'checked' : '' }} --}}
             </div>
 
 

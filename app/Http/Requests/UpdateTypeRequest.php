@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCharacterRequest extends FormRequest
+class UpdateTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,12 +22,7 @@ class StoreCharacterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|min:5',
-            'description' => 'nullable|',
-            'type_id' => 'exists:types,id|nullable',
-            'attack' => 'nullable',
-            'defense' => 'nullable',
-            'speed' => 'nullable'
+            //
         ];
     }
 }

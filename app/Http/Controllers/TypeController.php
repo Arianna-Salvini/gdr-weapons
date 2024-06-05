@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Weapon;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
+use App\Models\Type;
 
-class WeaponController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $weapons = Weapon::all();
-        return view('weapons.index', compact('weapons'));
+        //
     }
 
     /**
@@ -21,13 +21,13 @@ class WeaponController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
         //
     }
@@ -35,15 +35,15 @@ class WeaponController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Weapon $weapon)
+    public function show(Type $type)
     {
-        return view('weapons.show', compact('weapon'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Weapon $weapon)
+    public function edit(Type $type)
     {
         //
     }
@@ -51,7 +51,7 @@ class WeaponController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Weapon $weapon)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
         //
     }
@@ -59,7 +59,7 @@ class WeaponController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Weapon $weapon)
+    public function destroy(Type $type)
     {
         //
     }
