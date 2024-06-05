@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Weapon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 
 
 
@@ -16,7 +17,7 @@ class WeaponController extends Controller
     public function index()
     {
         $weapons = Weapon::all();
-        return view('admin.weapons.index', ['weapons' => Weapon::all()]);
+        return view('admin.weapons.index', ['weapons' => Weapon::orderByDesc('id')->paginate(20)]);
     }
 
     /**
@@ -24,7 +25,7 @@ class WeaponController extends Controller
      */
     public function create()
     {
-        
+        return view('admin.weapons.create');
     }
 
     /**
@@ -32,7 +33,12 @@ class WeaponController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slug = Str::slug($request->title, '-');
+        $request['slug'] = $slug;
+
+        $weapon = Weapon::create($request->all());
+
+        return to_route('admin.weapons.index')->with('message', "Hai creato un nuovo progetto, congratulazioni");
     }
 
     /**
@@ -64,6 +70,8 @@ class WeaponController extends Controller
      */
     public function destroy(Weapon $weapon)
     {
-        //
+        $weapon->delete();
+
+        return to_route('admin.weapons.index');
     }
 }
